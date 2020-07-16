@@ -1,35 +1,45 @@
 const URL = "http://localhost:8000";
 var listHeroes = null;
-axios.get(URL + "/heroes?_sort=views&_order=asc")
-    .then(heroes => displayAll(heroes.data))
+
+function getAll(pagination){
+    axios.get(URL + "/heroes")
+    .then(heroes => displayAll(heroes.data, pagination))
     .catch(err => console.error(err));
+}
 
 
+getAll();
 
 
-function displayAll(heroes) {
+function displayAll(heroes, pagination) {
+    if (pagination === undefined) pagination = [0, 50]
     const all = document.getElementById("all");
     listHeroes = heroes
     all.innerHTML = "";
-    // console.log("JE SIS LA    ",
-    //     heroes.sort(function(a, b) {
-    //     return b.id - a.id;
-    // }))
+    const test = heroes.sort(function(a, b) {
+        return b.id - a.id;
+    })
+    console.log("Test -> ", test);
     heroes.forEach((heroe, index) => {
-        if (index < 21) {
+        if (index >= pagination[0] && index <= pagination[1]) {
             all.innerHTML += `
         <div data-u-id="${heroe.id}" class="card">
         <p>${heroe.name}</p>
-        <figure><img src="${heroe.image.url}"></figure>
+        <figure><img src='${heroe.image.url}' onerror="this.onerror=null; this.src=''"></figure>
+        
         <button class="details" data-id="${heroe.id}">Details</button>
         <button class="supprimer" data-id="${heroe.id}">Delete</button>
         <button class="edit" data-id="${heroe.id}">Edit</button>
         </div>
         `;
         }
-        // 
 
     });
+
+    // heroes.some(function(heroe, index) {
+    //     if (you_want_to_break) return false
+    //     else return true
+    // })
 
     const buttons = document.querySelectorAll(".details");
 
@@ -51,8 +61,14 @@ function displayAll(heroes) {
         button.onclick = editrHeroe
     })
 
+    // RECHERCHE SUGGESTIONS
+    const search = document.getElementById("search");
+    search.oninput = (evt) => {
+        suggestions(evt, heroes)
+    }
 
-
+    //RESET
+    document.getElementById("reset").onclick = getAll;
 }
 
 
@@ -61,7 +77,7 @@ function suppimerHeroe (evt){
     console.log(URL + "/heroes/" + id)
     axios.delete(URL + "/heroes/" + id) 
     .then(res => {
-        displayAll(listHeroes)
+        getAll();
         removeUserFromDocument(id);
     })
     .catch(error => console.error(error))
@@ -72,9 +88,9 @@ function suppimerHeroe (evt){
 
 
 
-function openModale(evt) {
+function openModale(evt, findedHeroeID) {
 
-    const id = evt.target.getAttribute("data-id");
+    const id = (evt == null) ? findedHeroeID : evt.target.getAttribute("data-id");
     const heroe = listHeroes.find(heroe => heroe.id == id);
     const modale = document.createElement("div");
     modale.classList.add("modale");
@@ -111,6 +127,7 @@ function modaleCreateHeroe(){
     const body = document.querySelector("body");
     body.appendChild(modale)
     modale.innerHTML = `
+    <div id="form">
     <input id="name" type="text" name="name" placeholder="name">
     <input  id="fullname" type="text" name="full-name" placeholder="Full Name">
     <input  id="gender" type="text" name="gender" placeholder="Gender">
@@ -119,13 +136,20 @@ function modaleCreateHeroe(){
     <input  id="race" type="text" name="race" placeholder="Race">
     <input  id="publisher" type="text" name="publisher" placeholder="Publisher">
     <button id="valider" name="valider">créer</button>
+    </div>
     `;
 
     const valider = document.getElementById("valider");
     valider.onclick = createHeroe;
 
 }
-function createHeroe(evt){
+function createHeroe(){
+    // const form =  document.querySelectorAll("#form input");
+    // console.log(form)
+    // var newHeroe = {};
+    // form.forEach(data => Object.defineProperty(newHeroe, data.getAttribute("name"), {value: data.value}));
+    // Object.defineProperty(newHeroe, "image", {value: {url : "default.png"}})
+    // console.log(newHeroe)
    const name = document.getElementById("name").value
    const fullName = document.getElementById("fullname").value
    const gender = document.getElementById("gender").value
@@ -133,7 +157,6 @@ function createHeroe(evt){
    const alignment = document.getElementById("alignment").value
    const race = document.getElementById("race").value
    const publisher = document.getElementById("publisher").value
-   console.log(name, " ", fullName, " ", gender, " ", combat, " ", alignment, " ", race, " ", publisher)
     
    axios.post(URL + "/heroes/", { 
         name,
@@ -142,9 +165,10 @@ function createHeroe(evt){
         combat,
         alignment,
         race,
-        publisher
+        publisher,
+        image : {url: "default.png"}
     })
-    .then()
+    .then(res => getAll())
     .catch(err => console.error(err))
    
 }
@@ -153,3 +177,53 @@ function removeUserFromDocument(idUser) {
     const cardToRemove = document.querySelector(`[data-u-id="${idUser}"]`);
     cardToRemove.remove();
   }
+  
+
+function suggestions(evt, heroes){
+    const block = document.getElementById("block");
+    const suggestsBlock = document.getElementById("suggests-block");
+    const button = document.getElementById("find");
+    suggestsBlock.innerHTML = "";
+    const filteredHeroes = heroes.filter(heroe => {
+        let name = heroe.name.toLocaleLowerCase();
+        return name.includes(evt.target.value)
+    })
+    if (evt.target.value != "")
+    {
+        filteredHeroes.forEach((heroe, index) => {
+            if (index < 11)
+            {
+                const row = document.createElement("div");
+                row.setAttribute("class", "row")
+                row.textContent = heroe.name
+                suggestsBlock.appendChild(row);
+                row.onclick = () => {
+                    evt.target.value = row.textContent;
+                    suggestsBlock.innerHTML = "";
+                }
+            }
+        });
+    }
+
+    button.onclick = () => searchHeroe(evt.target.value);
+}
+
+function searchHeroe(heroeNameToFind){
+    axios.get(URL + "/heroes")
+    .then(heroes => {
+        let heroe = heroes.data.find(heroe => heroe.name == heroeNameToFind)
+        if (heroe) openModale(null, heroe.id)
+    })
+    .catch(err => console.error(err));
+}
+
+//PAGINATION
+
+document.querySelectorAll(".pagination button")
+.forEach(button => button.onclick = pagination)
+
+function pagination(evt){
+    let from = evt.target.getAttribute("data-id-from");
+    let to = evt.target.getAttribute("data-id-to");
+    getAll([from, to]);
+}
