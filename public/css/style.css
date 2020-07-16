@@ -1,0 +1,13 @@
+.modale{
+    width: 50%;
+    height: 50vh;
+    background: yellow;
+    position: fixed;
+    top: 0;
+    left: 10%;
+}
+
+#image{
+    width: 250px;
+    height: 250px;
+}
