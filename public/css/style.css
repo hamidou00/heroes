@@ -11,3 +11,35 @@
     width: 250px;
     height: 250px;
 }
+
+.card{
+    border: 1px solid black;
+    width: 200px;
+    height: 200px;
+    margin: 5px;
+ border-radius: 5px;
+
+    padding: 5px;
+}
+
+.card p {
+    text-align: center;
+}
+.card figure  {
+    width: 120px;
+    height: 120px;
+    margin: auto;
+
+}
+.card figure img {
+    width: 100%;
+    height: 100px;
+    margin: auto;
+}
+#all{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
