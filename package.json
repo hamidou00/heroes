@@ -1,0 +1,16 @@
+{
+  "name": "intro-api-ajax",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "back": "json-server --watch ./heroes-fake-db.json --port 8000",
+    "front": "lite-server"
+  },
+  "author": "guillaume.amg",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.16.1"
+  }
+}
