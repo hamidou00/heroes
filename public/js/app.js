@@ -24,12 +24,14 @@ function displayAll(heroes, pagination) {
         if (index >= pagination[0] && index <= pagination[1]) {
             all.innerHTML += `
         <div data-u-id="${heroe.id}" class="card">
-        <p>${heroe.name}</p>
-        <figure><img src='${heroe.image.url}' onerror="this.onerror=null; this.src=''"></figure>
         
-        <button class="details" data-id="${heroe.id}">Details</button>
-        <button class="supprimer" data-id="${heroe.id}">Delete</button>
-        <button class="edit" data-id="${heroe.id}">Edit</button>
+        <figure><img src='${heroe.image.url}' onerror="this.onerror=null; this.src=''"></figure>
+        <p>${heroe.name}</p>
+        <div class="buttons">
+        <button class="details btn" data-id="${heroe.id}">Details</button>
+        <button class="supprimer btn" data-id="${heroe.id}">Delete</button>
+        <button class="edit btn" data-id="${heroe.id}">Edit</button>
+        </div>
         </div>
         `;
         }
@@ -68,7 +70,10 @@ function displayAll(heroes, pagination) {
     }
 
     //RESET
-    document.getElementById("reset").onclick = getAll;
+    document.getElementById("reset").onclick = () => {
+        search.value = "";
+        getAll(pagination);
+    };
 }
 
 
@@ -101,19 +106,33 @@ function openModale(evt, findedHeroeID) {
     <div>
         <img id="image" src= "${heroe.image.url}">
         <ul>
-            <li><p>Name : </p>  ${heroe.name} ${heroe.biography["full-name"]}</li>
-            <li><p>Gender : </p> ${heroe.appearance.gender}</li>
-            <li><p>Combats : </p> ${heroe.powerstats.combat}</li>
-            <li><p>Alignement : </p> ${heroe.biography.alignment}</li>
-            <li><p>Race : </p> ${heroe.appearance.race}</li>
-            <li><p>Publisher : </p> ${heroe.biography.publisher}</li>
+            <li><p>Name : ${heroe.name} ${heroe.biography["full-name"]}</li>
+            <li><p>Gender :  ${heroe.appearance.gender}</li>
+            <li><p>Combats :  ${heroe.powerstats.combat}</li>
+            <li><p>Alignement :  ${heroe.biography.alignment}</li>
+            <li><p>Race : ${heroe.appearance.race}</li>
+            <li><p>Publisher : ${heroe.biography.publisher}</li>
         </ul>
+        <p id="close">X<p/>
      </div>
     `;
-
+    
+    const close = document.getElementById("close");
+    fermerModale(close, modale);
 
 }
 
+function fermerModale(closeElement, modale)
+{
+    closeElement.onclick = () => {
+        modale.remove();
+    }
+
+    window.onclick = (evt) => {
+        const html = document.querySelector("html");
+        if (evt.target == html) modale.remove();
+    }
+}
 
 function editrHeroe(evt){
     const id = evt.target.getAttribute("data-id");

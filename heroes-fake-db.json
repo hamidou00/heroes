@@ -10016,54 +10016,6 @@
       }
     },
     {
-      "id": 230,
-      "name": "Doomsday",
-      "powerstats": {
-        "intelligence": "75",
-        "strength": "100",
-        "speed": "67",
-        "durability": "100",
-        "power": "100",
-        "combat": "90"
-      },
-      "biography": {
-        "full-name": "Doomsday",
-        "alter-egos": "No alter egos found.",
-        "aliases": [
-          "The Ultimate Lifeform"
-        ],
-        "place-of-birth": "Krypton",
-        "first-appearance": "Superman: The Man of Steel #17 (Nov 1992)",
-        "publisher": "DC Comics",
-        "alignment": "bad"
-      },
-      "appearance": {
-        "gender": "Male",
-        "race": "Alien",
-        "height": [
-          "8'0",
-          "244 cm"
-        ],
-        "weight": [
-          "915 lb",
-          "412 kg"
-        ],
-        "eye-color": "Red",
-        "hair-color": "White"
-      },
-      "work": {
-        "occupation": "Destroyer",
-        "base": "-"
-      },
-      "connections": {
-        "group-affiliation": "Secret Society of Super Villains, Suicide Squad, Apokolips",
-        "relatives": "-"
-      },
-      "image": {
-        "url": "https://www.superherodb.com/pictures2/portraits/10/100/679.jpg"
-      }
-    },
-    {
       "id": 231,
       "name": "Doppelganger",
       "powerstats": {
@@ -32458,54 +32410,6 @@
       }
     },
     {
-      "id": 682,
-      "name": "Vagabond",
-      "powerstats": {
-        "intelligence": "null",
-        "strength": "null",
-        "speed": "null",
-        "durability": "null",
-        "power": "null",
-        "combat": "null"
-      },
-      "biography": {
-        "full-name": "Priscilla Lyons",
-        "alter-egos": "No alter egos found.",
-        "aliases": [
-          "-"
-        ],
-        "place-of-birth": "-",
-        "first-appearance": "(as Lyons) CAPTAIN AMERICA #325, (as Vagabond) CAPTAIN AMERICA #342",
-        "publisher": "Marvel Comics",
-        "alignment": "good"
-      },
-      "appearance": {
-        "gender": "Female",
-        "race": "null",
-        "height": [
-          "5'6'",
-          "168 cm"
-        ],
-        "weight": [
-          "120 lb",
-          "54 kg"
-        ],
-        "eye-color": "Blue",
-        "hair-color": "Strawberry Blond"
-      },
-      "work": {
-        "occupation": "Adventurer",
-        "base": "Mobile"
-      },
-      "connections": {
-        "group-affiliation": "Former partner of Nomad",
-        "relatives": "Phil (brother)"
-      },
-      "image": {
-        "url": "https://www.superherodb.com/pictures2/portraits/10/100/145.jpg"
-      }
-    },
-    {
       "id": 683,
       "name": "Valerie Hart",
       "powerstats": {
@@ -34718,150 +34622,6 @@
       }
     },
     {
-      "id": 728,
-      "name": "Ymir",
-      "powerstats": {
-        "intelligence": "50",
-        "strength": "100",
-        "speed": "27",
-        "durability": "100",
-        "power": "98",
-        "combat": "28"
-      },
-      "biography": {
-        "full-name": "Ymir",
-        "alter-egos": "No alter egos found.",
-        "aliases": [
-          "Aurgelmir"
-        ],
-        "place-of-birth": "Niffleheim",
-        "first-appearance": "JOURNEY INTO MYSTERY #97",
-        "publisher": "Marvel Comics",
-        "alignment": "good"
-      },
-      "appearance": {
-        "gender": "Male",
-        "race": "Frost Giant",
-        "height": [
-          "1000",
-          "304.8 meters"
-        ],
-        "weight": [
-          "- lb",
-          "0 kg"
-        ],
-        "eye-color": "White",
-        "hair-color": "No Hair"
-      },
-      "work": {
-        "occupation": "-",
-        "base": "Niffleheim"
-      },
-      "connections": {
-        "group-affiliation": "-",
-        "relatives": "Utgard-Loki, Loki, and the race of Frost Giants (descendants)"
-      },
-      "image": {
-        "url": "https://www.superherodb.com/pictures2/portraits/10/100/179.jpg"
-      }
-    },
-    {
-      "id": 729,
-      "name": "Yoda",
-      "powerstats": {
-        "intelligence": "88",
-        "strength": "52",
-        "speed": "33",
-        "durability": "25",
-        "power": "100",
-        "combat": "90"
-      },
-      "biography": {
-        "full-name": "Yoda",
-        "alter-egos": "No alter egos found.",
-        "aliases": [
-          "-"
-        ],
-        "place-of-birth": "-",
-        "first-appearance": "Star Wars: Episode V - The Empire Strikes Back (1980)",
-        "publisher": "George Lucas",
-        "alignment": "good"
-      },
-      "appearance": {
-        "gender": "Male",
-        "race": "Yoda's species",
-        "height": [
-          "2'2",
-          "66 cm"
-        ],
-        "weight": [
-          "38 lb",
-          "17 kg"
-        ],
-        "eye-color": "Brown",
-        "hair-color": "White"
-      },
-      "work": {
-        "occupation": "-",
-        "base": "-"
-      },
-      "connections": {
-        "group-affiliation": "Jedi Order, Jedi High Counsl, Galactic Republic",
-        "relatives": "Master: N'Kata Del Gormo, Apprentices: Dooku, Cin Drallig, Ikrit, Rahm Kota, Ki-Adi-Mundi, Oppo Rancisis, Luke Skywalker"
-      },
-      "image": {
-        "url": "https://www.superherodb.com/pictures2/portraits/10/100/10454.jpg"
-      }
-    },
-    {
-      "id": 730,
-      "name": "Zatanna",
-      "powerstats": {
-        "intelligence": "81",
-        "strength": "10",
-        "speed": "23",
-        "durability": "28",
-        "power": "100",
-        "combat": "56"
-      },
-      "biography": {
-        "full-name": "Zatanna Zatara",
-        "alter-egos": "No alter egos found.",
-        "aliases": [
-          "-"
-        ],
-        "place-of-birth": "-",
-        "first-appearance": "Hawkman #4",
-        "publisher": "DC Comics",
-        "alignment": "good"
-      },
-      "appearance": {
-        "gender": "Female",
-        "race": "Human",
-        "height": [
-          "5'7",
-          "170 cm"
-        ],
-        "weight": [
-          "127 lb",
-          "57 kg"
-        ],
-        "eye-color": "Blue",
-        "hair-color": "Black"
-      },
-      "work": {
-        "occupation": "-",
-        "base": "-"
-      },
-      "connections": {
-        "group-affiliation": "Misty Kilgore, Seven Soldiers of Victory, Justice League, Sentinels of Magic",
-        "relatives": "Giovanni \"John\" Zatara (father, deceased), Sindella (mother, deceased), Leonardo da Vinci (paternal ancestor, deceased)"
-      },
-      "image": {
-        "url": "https://www.superherodb.com/pictures2/portraits/10/100/809.jpg"
-      }
-    },
-    {
       "id": 731,
       "name": "Zoom",
       "powerstats": {
@@ -34908,6 +34668,19 @@
       "image": {
         "url": "https://www.superherodb.com/pictures2/portraits/10/100/1384.jpg"
       }
+    },
+    {
+      "name": "dzedz",
+      "fullName": "dsqdqsd",
+      "gender": "dqsdqs",
+      "combat": "vgvgu",
+      "alignment": "vuvugo",
+      "race": "bhuobvyuo",
+      "publisher": "vuovyuo",
+      "image": {
+        "url": "default.png"
+      },
+      "id": 733
     }
   ]
 }
