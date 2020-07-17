@@ -1,25 +1,64 @@
 const URL = "http://localhost:8000";
 var listHeroes = null;
 
-function getAll(pagination){
+function getAll(pagination, list, filter){
     axios.get(URL + "/heroes")
-    .then(heroes => displayAll(heroes.data, pagination))
+    .then(heroes => {
+        if (list == undefined)
+        displayAll(heroes.data, pagination, filter);
+        else
+        displayAll(list, pagination, filter);
+    })
     .catch(err => console.error(err));
 }
 
 
 getAll();
+const filter = document.getElementById("filter");
+// const asc = filter.getElementById("asc");
+// const desc = filter.getElementById("desc");
 
 
-function displayAll(heroes, pagination) {
+// asc.onclick = filterList;
+// desc.onclick = filterList;
+
+filter.oninput = filterList;
+
+function displayAll(heroes, pagination, filter) {
     if (pagination === undefined) pagination = [0, 50]
     const all = document.getElementById("all");
     listHeroes = heroes
     all.innerHTML = "";
-    const test = heroes.sort(function(a, b) {
-        return b.id - a.id;
-    })
-    console.log("Test -> ", test);
+
+    //FILTER
+    if(filter == "desc")
+    {
+        const test = heroes.sort(function(a, b) {
+            return b.id - a.id;
+        })
+    }
+    else
+    {
+        const test = heroes.sort(function(a, b) {
+            return a.id - b.id;
+        })
+    }
+    if(filter == "a-z")
+    {
+        const test = heroes.sort(function(a, b) {
+            return ('' + a.name).localeCompare(b.name);
+        })
+    }
+    if(filter == "z-a")
+    {
+        const test = heroes.sort(function(a, b) {
+            return ('' + b.name).localeCompare(a.name);
+        })
+    }
+    console.log("Test -> ", heroes);
+
+
+
     heroes.forEach((heroe, index) => {
         if (index >= pagination[0] && index <= pagination[1]) {
             all.innerHTML += `
@@ -85,9 +124,6 @@ function suppimerHeroe (evt){
         removeUserFromDocument(id);
     })
     .catch(error => console.error(error))
-
-    
-    
 }
 
 
@@ -112,7 +148,7 @@ function openModale(evt, findedHeroeID) {
             <li><p>Race : ${heroe.appearance.race}</li>
             <li><p>Publisher : ${heroe.biography.publisher}</li>
         </ul>
-        <p id="close">X<p/>
+        <span id="close">CLOSE<span/>
      </div>
     `;
     
@@ -154,9 +190,12 @@ function modaleCreateHeroe(){
     <input  id="race" type="text" name="race" placeholder="Race">
     <input  id="publisher" type="text" name="publisher" placeholder="Publisher">
     <button id="valider" name="valider">créer</button>
+
+    <span id="close" class="closeAdd">CLOSE<span/>
     </div>
     `;
-
+    const close = document.getElementById("close");
+    fermerModale(close, modale);
     const valider = document.getElementById("valider");
     valider.onclick = createHeroe;
 
@@ -244,4 +283,21 @@ function pagination(evt){
     let from = evt.target.getAttribute("data-id-from");
     let to = evt.target.getAttribute("data-id-to");
     getAll([from, to]);
+}
+
+function filterList(evt){
+    
+
+    console.log(evt.target.value)
+    axios.get(URL + "/heroes")
+    .then(heroes => {
+        getAll([0,50], heroes.data, evt.target.value);
+    })
+    .catch(err => console.error(err))
+    // const test = heroes.sort(function(a, b) {
+    //     return b.id - a.id;
+    // })
+    // console.log("Test -> ", test);
+
+
 }

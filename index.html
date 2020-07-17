@@ -17,7 +17,7 @@
         <h1 class="title">HEROES</h1>
     </header>
     <button class="createButton" id="create">Add Heroes</button>
-    <section>
+    <section id="rechercher">
         <div id="block">
             <input autocomplete="off" type="text" name="" id="search" placeholder="rechercher">
             <div id="suggests-block"></div>
@@ -25,6 +25,18 @@
         </div>
         <input type="button" value="trouver" id="find">
         <input type="button" value="reset" id="reset">
+        <!-- <div id="filter">
+            Ascendant<input type="radio" name="asc" id="" value="asc" checked>
+            Descendant<input type="radio" name="desc" id=""  value="desc" >
+        </div> -->
+
+        <select id="filter">
+            <option name="asc" id="asc" value="asc">Ascendant</option>
+            <option name="asc" id="desc" value="desc">Descendant</option>
+            <option name="a-z" id="a-z" value="a-z">A-Z</option>
+            <option name="z-a" id="z-a" value="z-a">Z-A</option>
+        </select>
+        
     </section>
     <section>
         <div class="pagination">

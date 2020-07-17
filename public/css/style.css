@@ -62,7 +62,7 @@ header h1 {
     border-radius: 5px;
     font-family: 'Comic Neue', cursive;
     font-size: 20px;
-    margin: 2% 5%;
+    margin: 2% 5% ;
 
 }
 
@@ -128,6 +128,13 @@ div.modale div ul li:first-child {
     position: relative;
 }
 
+.card:hover {
+    background: rgb(122, 13, 13);
+    position: relative;
+    color: white;
+    z-index: 40;
+}
+
 .card p {
     text-align: center;
     font-family: 'Bangers', cursive;
@@ -147,39 +154,40 @@ div.modale div ul li:first-child {
     margin: auto;
 }
 
-.btn{
-    width: 27%;
-    height: 30px;
-    margin:  1%;
-    border: 1px solid rgb(145, 26, 26);
+.btn {
+    width:30%;
+    height: 35px;
+    margin: 1%;
+    border: 2px solid white;
     color: white;
-    background: rgb(145, 26, 26);
+    background: rgb(122, 13, 13);
     border-radius: 5px;
     font-family: 'Comic Neue', cursive;
     margin-top: 150px;
     /* display: none;
     visibility: hidden; */
-    
+
 }
 
-.buttons{
+.buttons {
     position: absolute;
     opacity: 0;
     height: 100%;
     top: 0;
     width: 100%;
-    left: 45px;
+    /* left: ; */
 }
 
-.buttons:hover{
+.buttons:hover {
     position: absolute;
     top: 0;
-    opacity: 1;
+    opacity: 2;
     width: 100%;
     left: 45px;
+    
 }
 
-.modaleCreate{
+.modaleCreate {
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -195,74 +203,140 @@ div.modale div ul li:first-child {
 .modaleCreate input {
     width: 45%;
     height: 40px;
- margin: 10px;
- border-radius: 10px;
-background: black;
-color: white;
-text-align: center;
-border: 5px double rgb(255, 224, 224);
+    margin: 10px;
+    border-radius: 10px;
+    background: black;
+    color: white;
+    text-align: center;
+    border: 5px double rgb(255, 224, 224);
 }
 
-.modaleCreate input::placeholder{
+.modaleCreate input::placeholder {
     text-align: center;
-    
+
     color: coral;
 }
-.modaleCreate button{
+
+.modaleCreate button {
     height: 45px;
     width: 15%;
     font-size: 20px;
     color: white;
     background: rgb(199, 85, 43);
-    border:3px solid  white;
+    border: 3px solid white;
     border-radius: 10px;
     font-family: 'Bangers', cursive;
-    margin: 5%;
+    margin:  5%;
 }
 
 
 
 
+#suggests-block {
+    display: block;
+    position: absolute;
+    width: 100%;
+    z-index: 40;
+}
 
 
 
-
-.row{
-    background: yellow;
+.row {
+    background: orange;
+    color: white;
+text-align: center;
+line-height: 40px;
     height: 30px;
-    width: 350px;
-    border: 1px solid black;
+    width: 100%;
+    border: 1px solid white;
 
     animation-name: pop;
     animation-duration: 0.2s;
     animation-fill-mode: forwards;
     animation-timing-function: linear;
-    
+
 }
 
-@keyframes pop
-{
+@keyframes pop {
     0% {
         opacity: 0;
         margin-top: -30px;
     }
 
-    100%{
+    100% {
         opacity: 1;
         margin-top: 0px;
     }
 }
 
-#block{
-    background: blue;
+#block {
+width: 80%;
+height: 40px;
+border: 3px double black;
+border-radius: 7px;
     position: relative;
+    margin:0 0 0 10%;
+
 }
 
-#search{
-    width: 350px;
+input#search{
+    width: 98%;
+    height: 38px;
+    border: none;
+    margin: auto;
+    border-radius: 15px;
+    text-align: center;
 }
 
-#suggests-block{
-    display: block;
+
+input#find, input#reset{
+width: 15%;
+height: 40px;
+margin:2px;
+background: black;
+color: white;
+border-radius: 7px;
+}
+
+#filter{
+        width: 15%;
+        height: 40px;
+        margin:2px;
+        background: black;
+        color: white;
+        border-radius: 7px;
+        text-align: center;
+}
+
+#rechercher{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    height: 50px;
+    margin-bottom: 10px;
+   ;
+}
+
+div.pagination{
+   margin-left: 40%;
+}
+
+div.pagination button{
+    border-radius: 50%;
+    color:white;
+    background: black;
+    width: 30px;
+    height: 30px;
+}
+
+#close{
     position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.closeAdd{
+    color: white;
 }
