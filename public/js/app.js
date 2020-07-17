@@ -30,7 +30,6 @@ function displayAll(heroes, pagination) {
         <div class="buttons">
         <button class="details btn" data-id="${heroe.id}">Details</button>
         <button class="supprimer btn" data-id="${heroe.id}">Delete</button>
-        <button class="edit btn" data-id="${heroe.id}">Edit</button>
         </div>
         </div>
         `;

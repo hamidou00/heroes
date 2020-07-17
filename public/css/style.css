@@ -156,6 +156,7 @@ div.modale div ul li:first-child {
     background: rgb(145, 26, 26);
     border-radius: 5px;
     font-family: 'Comic Neue', cursive;
+    margin-top: 150px;
     /* display: none;
     visibility: hidden; */
     
@@ -163,19 +164,18 @@ div.modale div ul li:first-child {
 
 .buttons{
     position: absolute;
-    display: none;
-    visibility: hidden;
     opacity: 0;
-    top: 100px;
+    height: 100%;
+    top: 0;
+    width: 100%;
     left: 45px;
 }
 
 .buttons:hover{
     position: absolute;
-    display: block;
-    visibility: visible;
+    top: 0;
     opacity: 1;
-    top: 100px;
+    width: 100%;
     left: 45px;
 }
 
